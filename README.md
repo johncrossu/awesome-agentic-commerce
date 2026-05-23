@@ -1,4 +1,4 @@
-# Awesome x402
+# Awesome Agentic Commerce
 
 ![Merit Logo](./merit-logo.webp)
 
