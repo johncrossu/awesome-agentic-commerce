@@ -34,6 +34,7 @@ x402 is an emerging open standard from the Coinbase ecosystem focused on safer, 
 - [Pyrimid](https://pyrimid.ai/) - Agent-to-agent commerce infrastructure for x402 and ERC-8004, with MCP-native service discovery and onchain payment splitting through PyrimidRouter. ([Proof](https://pyrimid.ai/proof))
 - [x402station](https://x402station.com/) - Analytics and monitoring platform for x402 services with real-time insights and performance tracking.
 - [Onyx Bazaar](https://onyx-actions.onrender.com/bazaar) - Free public leaderboard of every paid x402 service indexed via the Coinbase CDP discovery API. Refreshed every 15 min, four views (top by volume / unique payers / recently active / cheapest), JSON variant at `/bazaar.json`. Complementary CDP-only slice next to x402Scan's multi-source view.
+- [gold-402](https://github.com/Haustorium12/gold-402) - Curated x402 directory by 24K Labs. 300+ handpicked entries across facilitators, SDKs, MCP servers, APIs, and tools, with editorial writeups and verified badges for production-confirmed services. Backed by a 29,000+ entry full catalog sourced from CDP Bazaar and Agentic.market.
 - [x402 Ecosystem Directory](https://www.x402.org/ecosystem)
 - [Strale](https://strale.dev) - Business data & compliance APIs for AI agents. 250+ quality-scored capabilities (company data, VAT validation, sanctions screening, KYB) across 27 countries with x402 payment support. [MCP server](https://www.npmjs.com/package/strale-mcp) available.
 - [Hedera and the x402 Payment Standard](https://hedera.com/blog/hedera-and-the-x402-payment-standard/) - Hedera ecosystem overview of x402-style programmable payments for applications and AI agents.
@@ -80,15 +81,19 @@ x402 is an emerging open standard from the Coinbase ecosystem focused on safer, 
 - [agent-wallet-sdk (NPM)](https://www.npmjs.com/package/agentwallet-sdk) - Non-custodial multi-chain wallet SDK for AI agents with native x402 payment support, CCTP cross-chain transfers, and CowSwap solver integration.
 - [ATXP – Agent Identity & Payment Infrastructure](https://github.com/atxp-dev/atxp) – One command registers an AI agent with a USDC wallet on Base, `@atxp.email` inbox, and 100+ x402-paid MCP tools (web search, image gen, LLM). The agent is both an x402 payer and can receive USDC payments.
 - [x402 Wallet for Claude Desktop](https://github.com/402md/x402-wallet-for-claude-desktop) - Claude Desktop extension with x402 USDC payments on Stellar and Base. Automatic 402 handling with configurable spending limits.
+- [x402-anthropic-python](https://github.com/kinance/x402-anthropic-python) — Drop-in Anthropic Python SDK wrapper that transparently handles HTTP 402 x402 payment retry. Wraps `httpx` transport so `anthropic.Anthropic` / `AsyncAnthropic` auto-pays with USDC on EVM (Base, Ethereum) or SVM (Solana) and retries — no call-site changes needed.
+- [x402-anthropic-typescript](https://github.com/kinance/x402-anthropic-typescript) — TypeScript equivalent. Custom `fetch` wrapper passed to `@anthropic-ai/sdk` for transparent x402 HTTP 402 pay-and-retry; ESM, fully typed, streaming-compatible.
 - [strale-mcp (NPM)](https://www.npmjs.com/package/strale-mcp) - MCP server for Strale's x402 capability catalog (KYB, sanctions, financial validation, business registries).
 - [@zkproofport-ai/mcp](https://github.com/zkproofport/proofport-ai) - MCP server + SDK for ZK proof generation paid via x402. Generate Coinbase KYC, Country, OIDC domain, or Google Workspace proofs from any AI agent.
 - [x402-rails (QuickNode)](https://github.com/quiknode-labs/x402-rails) - Ruby gem for integrating blockchain micropayments into your Ruby on Rails application
 - [x402-payments (QuickNode)](https://github.com/quiknode-labs/x402-payments) - Ruby gem for generating signed payment HTTP headers and links using the X402 protocol
 - [MoltPe (AI agent payment infrastructure)](https://github.com/umangbuilds/moltpe-agent-payments) - Non-custodial agent wallets with Shamir key splitting, programmable spending policies, and tri-rail support: x402 (HTTP-native), MPP (session-based), and fiat. 11 MCP tools for Claude Desktop, Cursor, Windsurf. Sub-second settlement on Polygon PoS, Base, Tempo. Free tier, no credit card. ([Site](https://moltpe.com))
+- [Routeweiler](https://github.com/nikoSchoinas/routeweiler-python-sdk) — Python micropayment client for autonomous agents that auto-handles HTTP 402 across x402, L402, MPP-Tempo, and Stripe SPT.
 
 
 
 - [agentpay-mcp](https://github.com/up2itnow0822/agentpay-mcp) ([npm](https://www.npmjs.com/package/agentpay-mcp)) - Non-custodial x402 MCP payment server for AI agents. Local signing — no custodial infrastructure. x402 V2 session payments, Base USDC, CCTP cross-chain.
+- [PipRail](https://github.com/piprail/piprail) - Backendless, MIT TypeScript SDK for x402 across 28 chains in 10 families (EVM, Solana, TON, Tron, NEAR, Sui, Aptos, Algorand, Stellar, XRPL). No facilitator, no fee — payments settle straight to your wallet, verified locally against your own RPC. ([npm](https://www.npmjs.com/package/@piprail/sdk))
 ### Standards and EIPs
 - [HTTP 402 Payment Required (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/402): browser-facing reference for the status code x402 standardizes around.
 - [HTTP 402 Payment Required (IANA Registry)](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml): canonical HTTP status-code registry entry for 402.
@@ -137,6 +142,7 @@ x402 is an emerging open standard from the Coinbase ecosystem focused on safer, 
 - [x402 Starter Kit – by Nader Dabit](https://github.com/dabit3/x402-starter-kit) – Simplest starter kit for building and deploying x402 APIs quickly.
 - [Vercel x402 AI Starter](https://vercel.com/templates/ai/x402-ai-starter) - Full-stack Next.js template combining x402, MCP, AI SDK, AI Gateway, and Coinbase CDP wallets.
 - [agent-marketplace-proxy](https://github.com/yayashuxue/agent-marketplace-proxy) – Reference implementation of the commodity-API-resale pattern: ~80 lines of Express that wrap any upstream REST API with `x402-express` middleware. Demoed with DataForSEO Google SERP at $0.001 USDC/call on Base. [Live](https://agent-marketplace-proxy.vercel.app)
+- [x402-approval-guard](https://github.com/eltociear/x402-approval-guard) – Pattern for gating an agent action on an x402 check: before signing `approve(spender, amount)`, calls `contract-guard` (`x402-fetch` + viem, $0.005 USDC on Base) to flag unlimited/risky ERC20 allowances and block the approval. Drop-in `guardApprove()` library + CLI.
 - [OpenStoa (zkproofport)](https://github.com/zkproofport/openstoa) – ZK-gated community where humans and AI agents coexist. Server-side ZK proof generation paid via x402. 1st Place at The Synthesis Hackathon (Agents That Keep Secrets).
 
 
